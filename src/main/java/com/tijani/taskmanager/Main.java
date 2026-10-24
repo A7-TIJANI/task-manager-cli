@@ -42,11 +42,11 @@ public class Main {
                         System.out.print("Task ID: ");
                         int id = Integer.parseInt(scanner.nextLine());
                         System.out.print("New status (TODO / DONE): ");
-                        if (!status.equals("TODO") && !status.equals("DONE")) {
+                        String status = scanner.nextLine().trim().toUpperCase();   // 1. READ
+                        if (!status.equals("TODO") && !status.equals("DONE")) {     // 2. VALIDATE
                             System.out.println("Status must be TODO or DONE.");
                             break;
                         }
-                        String status = scanner.nextLine();
                         dao.updateStatus(id, status);
                         System.out.println("Status updated.");
                     }
